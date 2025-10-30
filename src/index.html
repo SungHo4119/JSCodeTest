@@ -10,6 +10,7 @@
       a = [10, 11, 12, 13, 14, 15];
 
       let answer;
+      console.log('forEach');
       answer = a.forEach((element, index, origin) => {
         console.log(element, index, origin);
         // 10, 0, [10, 11, ...]
@@ -19,18 +20,28 @@
       // undefind
       console.log(answer);
 
+      console.log('map');
       answer = a.map((v, i) => {
+        // 11, 1
+        // 10, 0
+        console.log(v, i);
         if (v % 2 === 1) return v;
       });
       // [undefind, 11, undefind, 13, undefind, 15]
       console.log(answer);
 
+      console.log('filter');
       answer = a.filter((v, i, a) => {
+        console.log(v, i, a);
+        // 10, 0, [10, 11, ...]
+        // 11, 1, [10, 11, ...]
+
         if (v % 2 === 1) return v;
       });
       // [11, 13, 15]
       console.log(answer);
 
+      console.log('reduce');
       answer = a.reduce((acc, v) => {
         console.log(acc, v);
         // 10, 11

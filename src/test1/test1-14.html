@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <br />
+    N개의 문자열이 입력되면 그 중 가장 긴 문자열을 출력하는 프로그램을
+    작성하세요.
+    <script>
+      function solution(arr) {
+        let answer;
+        let max = 0;
+
+        arr.map((v) => {
+          if (max < v.length) {
+            max = v.length;
+            answer = v;
+          }
+        });
+
+        return answer;
+      }
+
+      let arr = ['teacher', 'time', 'student', 'beautiful', 'good'];
+      document.write(solution(arr));
+    </script>
+  </body>
+</html>

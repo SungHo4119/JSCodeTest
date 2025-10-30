@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <br />
+    소문자로 된 단어(문자열)가 입력되면 그 단어의 가운데 문자를 출력하는
+    프로그램을 작성하세 요. 단 단어의 길이가 짝수일 경우 가운데 2개의 문자를
+    출력합니다.
+    <script>
+      function solution(str) {
+        let mid = Math.floor(str.length / 2);
+        let answer;
+
+        if (str.length % 2 == 1) answer = str.substring(mid, mid + 1);
+        else answer = str.substring(mid - 1, mid + 1);
+        return answer;
+      }
+
+      document.write(solution('good'));
+      // document.write(solution('study'));
+
+      // substring(index,index+1)
+      // index 문자열부터 index+1 까지 문자열 추출
+
+      // substr(index, count)
+      // index 부터 count만큼의 문자열을 추출
+      // if (str.length % 2 == 1) answer = str.substr(mid, 1);
+      // else answer = str.substr(mid - 1, 2);
+    </script>
+  </body>
+</html>
