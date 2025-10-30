@@ -16,7 +16,7 @@
         //   }
         // }
         answer = arr.filter((v, i, o) => {
-          if (arr.indexOf(v) === i) return v;
+          return arr.indexOf(v) === i;
         });
 
         return answer;
