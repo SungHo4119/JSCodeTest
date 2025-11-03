@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <br />
+    S문자열에서 T문자열과 아나그램이 되는 S의 부분문자열의 개수를 구하는
+    프로그램을 작성하 세요. 아나그램 판별시 대소문자가 구분됩니다. 부분문자열은
+    연속된 문자열이어야 합니다.
+    <script>
+      function compare(s_sh, t_sh) {
+        for (let [key, value] of t_sh) {
+          if (s_sh.get(key) !== value) return false;
+        }
+        return true;
+      }
+
+      function solution(s, t) {
+        let answer = 0;
+        let t_sh = new Map();
+        let t_len = t.length;
+
+        // T 아나그램 판별을 위한 hash 생성
+        for (v of t) {
+          if (t_sh.has(v)) t_sh.set(v, t_sh.get(v) + 1);
+          else t_sh.set(v, 1);
+        }
+
+        let s_sh = new Map();
+        for (let i = 0; i < t_len - 1; i++) {
+          if (s_sh.has(s[i])) s_sh.set(s[rt], s_sh.get(s[i]) + 1);
+          else s_sh.set(s[i], 1);
+        }
+
+        let lt = 0;
+        for (let rt = t_len - 1; rt < s.length; rt++) {
+          if (s_sh.has(s[rt])) s_sh.set(s[rt], s_sh.get(s[rt]) + 1);
+          else s_sh.set(s[rt], 1);
+
+          // 비교
+          if (compare(s_sh, t_sh)) {
+            answer++;
+          }
+
+          // lt 번째 제거 및 lt++;
+          s_sh.set(s[lt], s_sh.get(s[lt++]) - 1);
+        }
+        return answer;
+      }
+
+      let a = 'bacaAacba';
+      let b = 'abc';
+      document.write(solution(a, b));
+    </script>
+  </body>
+</html>

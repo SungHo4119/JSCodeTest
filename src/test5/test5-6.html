@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <br />
+    학급 회장을 뽑는데 후보로 기호 A, B, C, D, E 후보가 등록을 했습니다.
+    투표용지에는 반 학생들이 자기가 선택한 후보의 기호(알파벳)가 쓰여져 있으며
+    선생님은 그 기호를 발표하고 있습니다. 선생님의 발표가 끝난 후 어떤 기호의
+    후보가 학급 회장이 되었는지 출력하는 프로그램을 작 성하세요. 반드시 한 명의
+    학급회장이 선출되도록 투표결과가 나왔다고 가정합니다
+    <script>
+      function solution(str) {
+        // 내가 푼 문제
+        // let answer;
+        // let hash = [];
+        // str = str.split('');
+        // for (v of str) {
+        //   hash[v] = isNaN(hash[v]) ? 1 : hash[v] + 1;
+        // }
+        // Object.entries(hash) => (key, value)
+        // return Object.entries(hash).reduce((a, b) => (a[1] > b[1] ? a : b))[0];
+
+        // 문제 답안
+        let sh = new Map();
+        for (let v of str) {
+          // map에 v로 된 키값이 존재하는지 확인
+          if (sh.has(v)) sh.set(v, sh.get(v) + 1);
+          else sh.set(v, 1);
+        }
+        return [...sh.entries()].reduce((a, b) => (a[1] > b[1] ? a : b))[0];
+      }
+
+      let str = 'BACBACCACCBDEDE';
+      document.write(solution(str));
+    </script>
+  </body>
+</html>

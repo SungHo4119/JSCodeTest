@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <br />
+    A, B 두 개의 집합이 주어지면 두 집합의 공통 원소를 추출하여 오름차순으로
+    출력하는 프로 그램을 작성하세요
+    <script>
+      function solution(a, b) {
+        let answer = [];
+        // sort()와 차이점
+        // -> sort()의 경우 문자열로 정렬하여 2자리수 이상의 숫자인경우 1, 10 ,2이런식으로나오게된다.
+        a = a.sort((a, b) => a - b);
+        b = b.sort((a, b) => a - b);
+
+        let p1 = (p2 = 0);
+
+        while (p1 < a.length && p2 < b.length) {
+          if (a[p1] === b[p2]) {
+            answer.push(a[p1++]);
+            p2++;
+          } else if (a[p1] < b[p2]) p1++;
+          else p2++;
+        }
+
+        return answer;
+      }
+      let a = [1, 3, 9, 5, 2, 10];
+      let b = [3, 2, 5, 7, 8, 10];
+      document.write(solution(a, b));
+    </script>
+  </body>
+</html>
