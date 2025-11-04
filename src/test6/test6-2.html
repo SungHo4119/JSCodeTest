@@ -20,15 +20,15 @@
         return answer.join('');
 
         // 문제 답안
-        let answer;
-        let stack = [];
-        for (let x of s) {
-          if (x === ')') {
-            while (stack.pop() !== '(');
-          } else stack.push(x);
-        }
-        answer = stack.join('');
-        return answer;
+        // let answer;
+        // let stack = [];
+        // for (let x of s) {
+        //   if (x === ')') {
+        //     while (stack.pop() !== '(');
+        //   } else stack.push(x);
+        // }
+        // answer = stack.join('');
+        // return answer;
       }
 
       document.write(solution('(A(BC)D)EF(G(H)(IJ)K)LM(N)'));
