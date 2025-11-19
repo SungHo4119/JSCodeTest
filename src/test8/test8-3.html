@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>이진트리 순회(깊이우선탐색)</title>
+  </head>
+  <body>
+    부모를 기준으로 오른쪽은 (n*2) +1/ 왼쪽은 n*2인 경우 이진트리라고 한다.
+    <br />
+    <script>
+      function solution(n) {
+        let answer = '';
+        // 전위 순회
+        // - 부 , 왼 , 오
+        function DFS(L) {
+          if (L > 7) return;
+          else {
+            // 부모 먼저 출력
+            answer += L + ' ';
+            DFS(L * 2);
+            DFS(L * 2 + 1);
+          }
+        }
+        DFS(n);
+        return answer;
+      }
+
+      function solution2(n) {
+        let answer = '';
+        // 중위 순회
+        // - 왼, 부, 오
+        function DFS(L) {
+          if (L > 7) return;
+          else {
+            DFS(L * 2);
+            answer += L + ' ';
+            DFS(L * 2 + 1);
+          }
+        }
+        DFS(n);
+        return answer;
+      }
+
+      function solution3(n) {
+        let answer = '';
+        // 후위 순회
+        // - 왼, 오, 부
+        function DFS(L) {
+          if (L > 7) return;
+          else {
+            DFS(L * 2);
+            DFS(L * 2 + 1);
+            answer += L + ' ';
+          }
+        }
+        DFS(n);
+        return answer;
+      }
+      document.write(solution3(1));
+    </script>
+  </body>
+</html>
